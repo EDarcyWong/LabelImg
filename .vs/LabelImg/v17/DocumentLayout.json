@@ -1,0 +1,165 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\projects\\LabelImg\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|d:\\projects\\labelimg\\views\\usercontrols\\solutionexplorer.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|solutionrelative:views\\usercontrols\\solutionexplorer.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|d:\\projects\\labelimg\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|d:\\projects\\labelimg\\views\\usercontrols\\labelgrid.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|solutionrelative:views\\usercontrols\\labelgrid.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|d:\\projects\\labelimg\\views\\usercontrols\\powershellterminal.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|solutionrelative:views\\usercontrols\\powershellterminal.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|d:\\projects\\labelimg\\views\\usercontrols\\powershellterminal.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|solutionrelative:views\\usercontrols\\powershellterminal.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|d:\\projects\\labelimg\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|d:\\projects\\labelimg\\views\\usercontrols\\labelbutton.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|solutionrelative:views\\usercontrols\\labelbutton.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|d:\\projects\\labelimg\\views\\usercontrols\\labelbutton.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|solutionrelative:views\\usercontrols\\labelbutton.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|d:\\projects\\labelimg\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SolutionExplorer.xaml.cs",
+              "DocumentMoniker": "D:\\projects\\LabelImg\\Views\\UserControls\\SolutionExplorer.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\SolutionExplorer.xaml.cs",
+              "ToolTip": "D:\\projects\\LabelImg\\Views\\UserControls\\SolutionExplorer.xaml.cs",
+              "RelativeToolTip": "Views\\UserControls\\SolutionExplorer.xaml.cs",
+              "ViewState": "AgIAADgBAAAAAAAAAAAQwFcBAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T14:28:08.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PowerShellTerminal.xaml.cs",
+              "DocumentMoniker": "D:\\projects\\LabelImg\\Views\\UserControls\\PowerShellTerminal.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\PowerShellTerminal.xaml.cs",
+              "ToolTip": "D:\\projects\\LabelImg\\Views\\UserControls\\PowerShellTerminal.xaml.cs",
+              "RelativeToolTip": "Views\\UserControls\\PowerShellTerminal.xaml.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAADYAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T09:25:42.799Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LabelButton.xaml.cs",
+              "DocumentMoniker": "D:\\projects\\LabelImg\\Views\\UserControls\\LabelButton.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\LabelButton.xaml.cs",
+              "ToolTip": "D:\\projects\\LabelImg\\Views\\UserControls\\LabelButton.xaml.cs",
+              "RelativeToolTip": "Views\\UserControls\\LabelButton.xaml.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAD4vzEAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T03:19:13.73Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LabelButton.xaml",
+              "DocumentMoniker": "D:\\projects\\LabelImg\\Views\\UserControls\\LabelButton.xaml",
+              "RelativeDocumentMoniker": "Views\\UserControls\\LabelButton.xaml",
+              "ToolTip": "D:\\projects\\LabelImg\\Views\\UserControls\\LabelButton.xaml",
+              "RelativeToolTip": "Views\\UserControls\\LabelButton.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-17T03:19:08.649Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\projects\\LabelImg\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "D:\\projects\\LabelImg\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-17T02:38:48.493Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LabelGrid.xaml.cs",
+              "DocumentMoniker": "D:\\projects\\LabelImg\\Views\\UserControls\\LabelGrid.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\LabelGrid.xaml.cs",
+              "ToolTip": "D:\\projects\\LabelImg\\Views\\UserControls\\LabelGrid.xaml.cs",
+              "RelativeToolTip": "Views\\UserControls\\LabelGrid.xaml.cs",
+              "ViewState": "AgIAANIAAAAAAAAAAAASwCcBAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T06:23:26.546Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\projects\\LabelImg\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "D:\\projects\\LabelImg\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAAKcBAAAAAAAAAAAYwM8BAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T06:40:04.831Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PowerShellTerminal.xaml",
+              "DocumentMoniker": "D:\\projects\\LabelImg\\Views\\UserControls\\PowerShellTerminal.xaml",
+              "RelativeDocumentMoniker": "Views\\UserControls\\PowerShellTerminal.xaml",
+              "ToolTip": "D:\\projects\\LabelImg\\Views\\UserControls\\PowerShellTerminal.xaml",
+              "RelativeToolTip": "Views\\UserControls\\PowerShellTerminal.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-17T09:25:17.011Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\projects\\LabelImg\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "D:\\projects\\LabelImg\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-05T06:40:11.351Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
