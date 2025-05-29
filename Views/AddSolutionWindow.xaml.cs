@@ -91,9 +91,6 @@ namespace LabelImg.Views
     <Path>{projectPath}</Path>
   </PropertyGroup>
   <Project>
-    <PropertyGroup>
-      <ProjectName>dataset</ProjectName>
-    </PropertyGroup>
     <ImagesGroup>
       <TrainGroup>
       </TrainGroup> 

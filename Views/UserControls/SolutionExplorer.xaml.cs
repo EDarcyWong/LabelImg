@@ -121,10 +121,19 @@ namespace LabelImg.Views.UserControls
                                     if (parentItem != null)
                                     {
                                         // 获取目录中所有的 JPG 文件
-                                        string[] jpgFiles = Directory.GetFiles(targetDirectory, "*.jpg");
+                                        string[] imageExtensions = new[] { ".jpg", ".jpeg", ".png" };
+                                        string[] imageFiles = Array.Empty<string>();
+
+                                        if (Directory.Exists(targetDirectory))
+                                        {
+                                            imageFiles = Directory
+                                                .EnumerateFiles(targetDirectory)
+                                                .Where(file => imageExtensions.Contains(Path.GetExtension(file).ToLower()))
+                                                .ToArray();
+                                        }
                                         parentItem.Items.Clear();
                                         // 循环处理每个 JPG 文件
-                                        foreach (string jpgFile in jpgFiles)
+                                        foreach (string jpgFile in imageFiles)
                                         {
                                             // 获取文件名（不包含路径）
                                             string fileName = System.IO.Path.GetFileName(jpgFile);
@@ -327,58 +336,96 @@ namespace LabelImg.Views.UserControls
                     Level = 0,
                     ParentIndex = 0
                 };
-                int index = 0;
-                foreach (var project in solutionInfo.Projects)
+
+                var imgs = new SolutionItem
                 {
-                    //MessageBox.Show($"SolutionName: {solutionInfo.SolutionName}\nPath: {solutionInfo.Path}\nProjectName: {project.ProjectName}\nTrainImages: {string.Join(", ", project.TrainImages)}\nValImages: {string.Join(", ", project.ValImages)}\nTrainLabels: {string.Join(", ", project.TrainLabels)}\nValLabels: {string.Join(", ", project.ValLabels)}", "信息", MessageBoxButton.OK, MessageBoxImage.Information);
+                    SubIndex = 1,
+                    Name = $"images",
+                    IconPath = "/Images/folder4.png",
+                    RelativePath = $"/images/",
+                    Level = 1,
+                    ParentIndex = 0
+                };
+                solution.Items.Add(imgs);
 
-                    var project1 = new SolutionItem
-                    {
-                        SubIndex = index,
-                        Name = $"{project.ProjectName}",
-                        IconPath = "/Images/folder4.png",
-                        RelativePath = $"/{project.ProjectName}",
-                        Level = 1,
-                        ParentIndex = 0
-                    };
-                    if (project.ProjectName == "dataset")
-                    {
-                        var train = new SolutionItem
-                        {
-                            SubIndex = 0,
-                            Name = $"train",
-                            IconPath = "/Images/folder4.png",
-                            RelativePath = $"{project1.RelativePath}/images/train",
-                            Level = 2,
-                            ParentIndex = index
-                        };
+                var labels = new SolutionItem
+                {
+                    SubIndex = 1,
+                    Name = $"labels",
+                    IconPath = "/Images/folder4.png",
+                    RelativePath = $"/labels/",
+                    Level = 1,
+                    ParentIndex = 0
+                };
+                solution.Items.Add(labels);
 
-                        var val = new SolutionItem
-                        {
-                            SubIndex = 1,
-                            Name = $"val",
-                            IconPath = "/Images/folder4.png",
-                            RelativePath = $"{project1.RelativePath}/images/val",
-                            Level = 2,
-                            ParentIndex = index
-                        };
-                        project1.Items.Add(train);
-                        project1.Items.Add(val);
-                        loadJpg(Directory.GetParent(ysnlFilePath)?.FullName + "\\" + project.ProjectName + "\\images\\train\\", train, index);
-                        loadJpg(Directory.GetParent(ysnlFilePath)?.FullName + "\\" + project.ProjectName + "\\images\\val\\", val, index);
-                    }
-                    solution.Items.Add(project1);
-                    index++;
-                }
+                var train1 = new SolutionItem
+                {
+                    SubIndex = 0,
+                    Name = $"train",
+                    IconPath = "/Images/folder4.png",
+                    RelativePath = $"/images/train",
+                    Level = 2,
+                    ParentIndex = 2
+                };
+
+                var val1 = new SolutionItem
+                {
+                    SubIndex = 1,
+                    Name = $"val",
+                    IconPath = "/Images/folder4.png",
+                    RelativePath = $"/images/val",
+                    Level = 2,
+                    ParentIndex = 2
+                };
+                imgs.Items.Add(train1);
+                imgs.Items.Add(val1);
+
+                loadJpg(Directory.GetParent(ysnlFilePath)?.FullName + "\\images\\train\\", train1, 2);
+                loadJpg(Directory.GetParent(ysnlFilePath)?.FullName + "\\images\\val\\", val1, 2);
+
+
+                var train2 = new SolutionItem
+                {
+                    SubIndex = 0,
+                    Name = $"train",
+                    IconPath = "/Images/folder4.png",
+                    RelativePath = $"/labels/train",
+                    Level = 2,
+                    ParentIndex = 2
+                };
+
+                var val2 = new SolutionItem
+                {
+                    SubIndex = 1,
+                    Name = $"val",
+                    IconPath = "/Images/folder4.png",
+                    RelativePath = $"/imlabelsages/val",
+                    Level = 2,
+                    ParentIndex = 2
+                };
+                labels.Items.Add(train2);
+                labels.Items.Add(val2);
+
                 Items.Add(solution);
             }
         }
         private void loadJpg(string targetDirectory, SolutionItem parentItem, int parentIndex)
         {
-            string[] jpgFiles = Directory.GetFiles(targetDirectory, "*.jpg");
+            string[] imageExtensions = new[] { ".jpg", ".jpeg", ".png" };
+            string[] imageFiles = Array.Empty<string>();
+
+            if (Directory.Exists(targetDirectory))
+            {
+                imageFiles = Directory
+                    .EnumerateFiles(targetDirectory)
+                    .Where(file => imageExtensions.Contains(Path.GetExtension(file).ToLower()))
+                    .ToArray();
+            }
+            //string[] jpgFiles = Directory.GetFiles(targetDirectory, "*.jpg");
             parentItem.Items.Clear();
             // 循环处理每个 JPG 文件
-            foreach (string jpgFile in jpgFiles)
+            foreach (string jpgFile in imageFiles)
             {
                 // 获取文件名（不包含路径）
                 string fileName = System.IO.Path.GetFileName(jpgFile);
