@@ -5,7 +5,7 @@
     xmlns:UserControls="clr-namespace:LabelImg.Views.UserControls"
     xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
     xmlns:local="clr-namespace:LabelImg.Converters"
-    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
     Title="MainWindow"
     Width="1300"
     Height="800"
@@ -13,7 +13,6 @@
     MinHeight="550"
     Closed="Window_Closed"
     SizeChanged="MainWindow_SizeChanged"
-    Style="{StaticResource MaterialDesignWindow}"
     WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <local:RowIndexConverter x:Key="RowIndexConverter" />
@@ -303,11 +302,31 @@
                         ResizeBehavior="PreviousAndNext" />
                     <Grid Grid.Row="2">
                         <Border BorderBrush="#FFABABAB" BorderThickness="0,1,0,0">
-                            <TextBlock
+                            <!--<TextBlock
                                 x:Name="tbProperty"
                                 Margin="6,26,6,6"
                                 Foreground="Black"
-                                Text="1234" />
+                                Text="1234" />-->
+                            <hc:TransitioningContentControl>
+                                <Grid Margin="22">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <hc:PropertyGrid Width="500" SelectedObject="{Binding DemoModel}"/>
+                                    <StackPanel hc:TitleElement.TitleWidth="168" Grid.Row="1" Margin="20,16,17,10">
+                                        <TextBox hc:TitleElement.Title="String" hc:TitleElement.TitlePlacement="Left" Style="{StaticResource TextBoxExtend}" Text="{Binding DemoModel.String,Mode=OneWay}" IsReadOnly="True"/>
+                                        <TextBox hc:TitleElement.Title="Enum" hc:TitleElement.TitlePlacement="Left" Style="{StaticResource TextBoxExtend}" Text="{Binding DemoModel.Enum,Mode=OneWay}" IsReadOnly="True" Margin="0,6,0,0"/>
+                                        <TextBox hc:TitleElement.Title="Integer" hc:TitleElement.TitlePlacement="Left" Style="{StaticResource TextBoxExtend}" Text="{Binding DemoModel.Integer,Mode=OneWay}" IsReadOnly="True" Margin="0,6,0,0"/>
+                                        <TextBox hc:TitleElement.Title="Boolean" hc:TitleElement.TitlePlacement="Left" Style="{StaticResource TextBoxExtend}" Text="{Binding DemoModel.Boolean,Mode=OneWay}" IsReadOnly="True" Margin="0,6,0,0"/>
+                                        <TextBox hc:TitleElement.Title="HorizontalAlignment" hc:TitleElement.TitlePlacement="Left" Style="{StaticResource TextBoxExtend}" Text="{Binding DemoModel.HorizontalAlignment,Mode=OneWay}" IsReadOnly="True" Margin="0,6,0,0"/>
+                                        <TextBox hc:TitleElement.Title="VerticalAlignment" hc:TitleElement.TitlePlacement="Left" Style="{StaticResource TextBoxExtend}" Text="{Binding DemoModel.VerticalAlignment,Mode=OneWay}" IsReadOnly="True" Margin="0,6,0,0"/>
+                                        <GroupBox Style="{StaticResource GroupBoxOriginal}" Header="ImageSource" hc:TitleElement.TitlePlacement="Left" Margin="0,6,0,0">
+                                            <hc:Gravatar HorizontalAlignment="Left" Source="{Binding DemoModel.ImageSource}"/>
+                                        </GroupBox>
+                                    </StackPanel>
+                                </Grid>
+                            </hc:TransitioningContentControl>
                         </Border>
                         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top">
                             <Grid.ColumnDefinitions>

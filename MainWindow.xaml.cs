@@ -570,6 +570,15 @@ namespace LabelImg
 
             //}
         }
+
+        public static readonly DependencyProperty DemoModelProperty = DependencyProperty.Register(
+            "DemoModel", typeof(PropertyGridDemoModel), typeof(HandyControl.Controls.PropertyGrid), new PropertyMetadata(default(PropertyGridDemoModel)));
+
+        public PropertyGridDemoModel DemoModel
+        {
+            get => (PropertyGridDemoModel)GetValue(DemoModelProperty);
+            set => SetValue(DemoModelProperty, value);
+        }
         private void GetImageProperties(string imagePath)
         {
             try
@@ -600,12 +609,22 @@ namespace LabelImg
                     FileInfo fileInfo = new FileInfo(imagePath);
                     long fileSizeInBytes = fileInfo.Length;
                     double fileSizeInKB = fileSizeInBytes / 1024.0;
-                    tbProperty.Text = @$"
-路径：{imagePath}
-尺寸：{width}x{height}
-类型：{format}
-大小：{fileSizeInKB:F2} KB
-";
+//                    tbProperty.Text = @$"
+//路径：{imagePath}
+//尺寸：{width}x{height}
+//类型：{format}
+//大小：{fileSizeInKB:F2} KB
+//";
+
+                    DemoModel = new PropertyGridDemoModel
+                    {
+                        String = "TestString",
+                        Enum = Gender.Female,
+                        Boolean = true,
+                        Integer = 98,
+                        VerticalAlignment = VerticalAlignment.Stretch
+                    };
+
 
                     // 输出所有属性项
                     foreach (var propertyItem in propertyItems)
