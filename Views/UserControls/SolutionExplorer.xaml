@@ -1,0 +1,152 @@
+﻿<UserControl
+    x:Class="LabelImg.Views.UserControls.SolutionExplorer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:LabelImg.Views.UserControls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Loaded="UserControl_Loaded"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <!--  定义默认的 TreeViewItem 样式  -->
+        <Style x:Key="DefaultTreeViewItemStyle" TargetType="{x:Type TreeViewItem}">
+            <Setter Property="Padding" Value="6,2" />
+            <Setter Property="IsExpanded" Value="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}" />
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="Blue" />
+                    <Setter Property="Foreground" Value="White" />
+                </Trigger>
+                <Trigger Property="IsSelected" Value="False">
+                    <Setter Property="Background" Value="White" />
+                    <Setter Property="Foreground" Value="Black" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <!--  定义隐藏展开图标的样式  -->
+        <!--  定义一个名为 Background 的资源  -->
+        <!--<SolidColorBrush x:Key="MyBorderBackground" Color="LightGray"/>-->
+
+        <!--  定义隐藏展开图标的样式  -->
+        <Style x:Key="HiddenExpanderStyle" TargetType="{x:Type TreeViewItem}">
+            <Setter Property="Padding" Value="6,4" />
+            <!--<Setter Property="Background" Value="{Binding BackgroundColor}" />-->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TreeViewItem">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <ToggleButton
+                                x:Name="Expander"
+                                ClickMode="Press"
+                                IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"
+                                IsHitTestVisible="True"
+                                Style="{StaticResource {x:Static ToolBar.ToggleButtonStyleKey}}"
+                                Visibility="Collapsed" />
+                            <!--  设置 IsHitTestVisible 为 True  -->
+                            <Border
+                                x:Name="boderSolutionControl"
+                                Grid.Column="1"
+                                Padding="8,6">
+                                <!--  使用模板绑定的填充  -->
+                                <ContentPresenter
+                                    x:Name="PART_Header"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    ContentSource="Header" />
+                            </Border>
+                            <ItemsPresenter
+                                x:Name="ItemsHost"
+                                Grid.Row="1"
+                                Grid.Column="1" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--  定义 CustomTreeViewItemStyleSelector  -->
+        <local:CustomTreeViewItemStyleSelector
+            x:Key="TreeViewItemStyleSelector"
+            DefaultStyle="{StaticResource DefaultTreeViewItemStyle}"
+            HiddenExpanderStyle="{StaticResource HiddenExpanderStyle}" />
+
+
+        <!--  Define a style for MenuItem  -->
+        <Style x:Key="CustomMenuItemStyle" TargetType="{x:Type MenuItem}">
+            <Setter Property="Background" Value="LightGray" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Padding" Value="8,4" />
+            <Setter Property="Margin" Value="2" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="MenuItem">
+                        <Border Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}">
+                            <StackPanel Orientation="Horizontal">
+                                <ContentPresenter HorizontalAlignment="Left" ContentSource="Header" />
+                                <TextBlock HorizontalAlignment="Right" Text="{TemplateBinding InputGestureText}" />
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsHighlighted" Value="True">
+                                <Setter Property="Background" Value="DarkGray" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--  Define a style for ContextMenu  -->
+        <Style x:Key="CustomContextMenuStyle" TargetType="{x:Type ContextMenu}">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderBrush" Value="Gray" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ContextMenu">
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                            <StackPanel IsItemsHost="True" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <hc:TransitioningContentControl>
+            <TreeView
+                x:Name="solutionTreeView"
+                ItemContainerStyleSelector="{StaticResource TreeViewItemStyleSelector}"
+                ItemsSource="{Binding Items}"
+                MouseLeftButtonUp="solutionTreeView_MouseLeftButtonUp"
+                MouseRightButtonUp="solutionTreeView_MouseRightButtonUp">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding Items}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image
+                                Width="17"
+                                Height="17"
+                                Margin="0,0,5,0"
+                                Source="{Binding IconPath}" />
+                            <TextBlock Text="{Binding Name}" />
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+        </hc:TransitioningContentControl>
+    </Grid>
+</UserControl>

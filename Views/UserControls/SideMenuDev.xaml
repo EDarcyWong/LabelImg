@@ -1,0 +1,39 @@
+﻿<UserControl
+    x:Class="LabelImg.Views.UserControls.SideMenuDev"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:LabelImg.Views.UserControls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="150"
+    mc:Ignorable="d">
+    <Grid>
+        <TreeView x:Name="MenuTreeView">
+            <TreeViewItem Header="资源路径" MouseLeftButtonUp="TreeViewItem_MouseLeftButtonUp">
+                <!--  Resource Path  -->
+                <!--<TreeViewItem Header="保存路径"  MouseLeftButtonUp="SubItem_MouseLeftButtonUp"/>
+                <TreeViewItem Header="添加图片"  MouseLeftButtonUp="SubItem_MouseLeftButtonUp"/>-->
+                <TreeViewItem Header="暂无" />
+            </TreeViewItem>
+            <TreeViewItem Header="标注工具" MouseLeftButtonUp="TreeViewItem_MouseLeftButtonUp">
+                <TreeViewItem Header="标注类别管理" MouseLeftButtonUp="SubItem_MouseLeftButtonUp" />
+                <!--  Annotation Tool  -->
+                <CheckBox
+                    Name="ShowAnnotationsCheckBox"
+                    Margin="0,0,5,0"
+                    Checked="ShowAnnotationsCheckBox_Checked"
+                    Content="显示标注图"
+                    Unchecked="ShowAnnotationsCheckBox_Unchecked" />
+                <TreeViewItem Header="添加标注" MouseLeftButtonUp="SubItem_MouseLeftButtonUp" />
+            </TreeViewItem>
+            <TreeViewItem Header="Profile" MouseLeftButtonUp="TreeViewItem_MouseLeftButtonUp">
+                <!--  Profile  -->
+                <TreeViewItem Header="Subitem 1" MouseLeftButtonUp="SubItem_MouseLeftButtonUp" />
+                <TreeViewItem Header="Subitem 2" MouseLeftButtonUp="SubItem_MouseLeftButtonUp" />
+            </TreeViewItem>
+            <TreeViewItem Header="Logout" MouseLeftButtonUp="TreeViewItem_MouseLeftButtonUp" />
+            <!--  Logout  -->
+        </TreeView>
+    </Grid>
+</UserControl>

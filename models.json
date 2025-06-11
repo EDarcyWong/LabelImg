@@ -1,0 +1,136 @@
+[
+  {
+    "DisplayName": "YOLOv8n",
+    "FileName": "yolov8n.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov8n.pt"
+  },
+  {
+    "DisplayName": "YOLOv8s",
+    "FileName": "yolov8s.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov8s.pt"
+  },
+  {
+    "DisplayName": "YOLOv8m",
+    "FileName": "yolov8m.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov8m.pt"
+  },
+  {
+    "DisplayName": "YOLOv8l",
+    "FileName": "yolov8l.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov8l.pt"
+  },
+  {
+    "DisplayName": "YOLOv8x",
+    "FileName": "yolov8x.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov8x.pt"
+  },
+
+  {
+    "DisplayName": "YOLOv9t",
+    "FileName": "yolov9t.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov9t.pt"
+  },
+  {
+    "DisplayName": "YOLOv9s",
+    "FileName": "yolov9s.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov9s.pt"
+  },
+  {
+    "DisplayName": "YOLOv9m",
+    "FileName": "yolov9m.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov9m.pt"
+  },
+  {
+    "DisplayName": "YOLOv9c",
+    "FileName": "yolov9c.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov9c.pt"
+  },
+  {
+    "DisplayName": "YOLOv9e",
+    "FileName": "yolov9e.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov9e.pt"
+  },
+
+  {
+    "DisplayName": "YOLOv10n",
+    "FileName": "yolov10n.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov10n.pt"
+  },
+  {
+    "DisplayName": "YOLOv10s",
+    "FileName": "yolov10s.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov10s.pt"
+  },
+  {
+    "DisplayName": "YOLOv10m",
+    "FileName": "yolov10m.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov10m.pt"
+  },
+  {
+    "DisplayName": "YOLOv10b",
+    "FileName": "yolov10b.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov10b.pt"
+  },
+  {
+    "DisplayName": "YOLOv10l",
+    "FileName": "yolov10l.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov10l.pt"
+  },
+  {
+    "DisplayName": "YOLOv10x",
+    "FileName": "yolov10x.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov10x.pt"
+  },
+
+  {
+    "DisplayName": "YOLOv11n",
+    "FileName": "yolo11n.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11n.pt"
+  },
+  {
+    "DisplayName": "YOLOv11s",
+    "FileName": "yolo11s.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11s.pt"
+  },
+  {
+    "DisplayName": "YOLOv11m",
+    "FileName": "yolo11m.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11m.pt"
+  },
+  {
+    "DisplayName": "YOLOv11l",
+    "FileName": "yolo11l.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11l.pt"
+  },
+  {
+    "DisplayName": "YOLOv11x",
+    "FileName": "yolo11x.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11x.pt"
+  },
+
+  {
+    "DisplayName": "YOLOv12n",
+    "FileName": "yolo12n.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo12n.pt"
+  },
+  {
+    "DisplayName": "YOLOv12s",
+    "FileName": "yolo12s.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo12s.pt"
+  },
+  {
+    "DisplayName": "YOLOv12m",
+    "FileName": "yolo12m.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo12m.pt"
+  },
+  {
+    "DisplayName": "YOLOv12l",
+    "FileName": "yolo12l.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo12l.pt"
+  },
+  {
+    "DisplayName": "YOLOv12x",
+    "FileName": "yolo12x.pt",
+    "DownloadUrl": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo12x.pt"
+  }
+]

@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="LabelImg.Views.UserControls.CodeEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LabelImg.Views.UserControls"
+             xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="50" />
+        </Grid.ColumnDefinitions>
+
+        <avalonedit:TextEditor Name="textEditor" 
+                               ShowLineNumbers="True"
+                               SyntaxHighlighting="C#" 
+                               Grid.Column="0" />
+
+        <!-- 右侧代码缩略视图区域，可以自定义实现 -->
+        <Border Background="LightGray" Grid.Column="1">
+            <!-- 此处为示例，实际实现代码缩略图需自定义控件或绘制 -->
+            <TextBlock Text="代码缩略图" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
+    </Grid>
+</UserControl>

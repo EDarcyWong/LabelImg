@@ -1,0 +1,140 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\projects\\LabelImg\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|d:\\projects\\labelimg\\yolo\\pythonprocessrunner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|solutionrelative:yolo\\pythonprocessrunner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|d:\\projects\\labelimg\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|d:\\projects\\labelimg\\yolo\\yolo_server.py||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|solutionrelative:yolo\\yolo_server.py||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|d:\\projects\\labelimg\\yolo\\yoloclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|solutionrelative:yolo\\yoloclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|d:\\projects\\labelimg\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|d:\\projects\\labelimg\\models.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|solutionrelative:models.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|d:\\projects\\labelimg\\views\\usercontrols\\labelgrid.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FEB8DF-9C9B-4BFE-8B76-68025B9385B1}|LabelImg.csproj|solutionrelative:views\\usercontrols\\labelgrid.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PythonProcessRunner.cs",
+              "DocumentMoniker": "D:\\projects\\LabelImg\\YOLO\\PythonProcessRunner.cs",
+              "RelativeDocumentMoniker": "YOLO\\PythonProcessRunner.cs",
+              "ToolTip": "D:\\projects\\LabelImg\\YOLO\\PythonProcessRunner.cs",
+              "RelativeToolTip": "YOLO\\PythonProcessRunner.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAuwFQAAABnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T14:54:00.16Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "models.json",
+              "DocumentMoniker": "D:\\projects\\LabelImg\\models.json",
+              "RelativeDocumentMoniker": "models.json",
+              "ToolTip": "D:\\projects\\LabelImg\\models.json",
+              "RelativeToolTip": "models.json",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAEwIgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-11T13:53:34.357Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\projects\\LabelImg\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "D:\\projects\\LabelImg\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-11T13:20:10.648Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "YoloClient.cs",
+              "DocumentMoniker": "D:\\projects\\LabelImg\\YOLO\\YoloClient.cs",
+              "RelativeDocumentMoniker": "YOLO\\YoloClient.cs",
+              "ToolTip": "D:\\projects\\LabelImg\\YOLO\\YoloClient.cs",
+              "RelativeToolTip": "YOLO\\YoloClient.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T13:49:53.079Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LabelGrid.xaml.cs",
+              "DocumentMoniker": "D:\\projects\\LabelImg\\Views\\UserControls\\LabelGrid.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\LabelGrid.xaml.cs",
+              "ToolTip": "D:\\projects\\LabelImg\\Views\\UserControls\\LabelGrid.xaml.cs",
+              "RelativeToolTip": "Views\\UserControls\\LabelGrid.xaml.cs",
+              "ViewState": "AgIAACkCAAAAAAAAAAAWwEICAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T13:09:00.997Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "yolo_server.py",
+              "DocumentMoniker": "D:\\projects\\LabelImg\\YOLO\\yolo_server.py",
+              "RelativeDocumentMoniker": "YOLO\\yolo_server.py",
+              "ToolTip": "D:\\projects\\LabelImg\\YOLO\\yolo_server.py",
+              "RelativeToolTip": "YOLO\\yolo_server.py",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAE0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-06-10T07:56:39.734Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\projects\\LabelImg\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "D:\\projects\\LabelImg\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAiwKYAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T06:40:04.831Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
