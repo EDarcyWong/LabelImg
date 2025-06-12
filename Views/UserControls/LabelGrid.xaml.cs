@@ -188,6 +188,26 @@ namespace LabelImg.Views.UserControls
             };
         }
 
+        private RoutedEventHandler NewLabelRightHandlerAll()
+        {
+            return (s, ev) =>
+            {
+                //深拷贝，避免地址引用。CutLabelModel中含有clone方法。
+                oldList = viewModel.CutList.Select(item => item.Clone()).ToList();
+                viewModel.CutList.Clear();
+
+                for (int i = lblCon.Children.Count - 1; i >= 0; i--)
+                {
+                    if (lblCon.Children[i] is Label)
+                    {
+                        lblCon.Children.RemoveAt(i);
+                    }
+                }
+
+                OnLabelDataChanged(viewModel.CutList.ToList());
+            };
+        }
+
         public void ActiveLabelByName(string labelName)
         {
             foreach (var kvp in lblCon.Children)
@@ -653,7 +673,10 @@ namespace LabelImg.Views.UserControls
                 ContextMenu contextMenu = new ContextMenu();
                 MenuItem deleteItem = new MenuItem { Header = "删除" };
                 deleteItem.Click += NewLabelRightHandler(newLabel);
+                MenuItem deleteAllItem = new MenuItem { Header = "全部删除" };
+                deleteAllItem.Click += NewLabelRightHandlerAll();
                 contextMenu.Items.Add(deleteItem);
+                contextMenu.Items.Add(deleteAllItem);
                 newLabel.ContextMenu = contextMenu;
             }
 
