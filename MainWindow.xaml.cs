@@ -130,7 +130,14 @@ namespace LabelImg
 				_models = JsonSerializer.Deserialize<List<YoloModelItem>>(json);
 				YoloComboBox.ItemsSource = _models;
 				YoloComboBox.DisplayMemberPath = "DisplayName";
-			}
+
+                //YoloModelItem item = new YoloModelItem();
+                //item.FileName  = "yolo11x.pt";
+                //item.DisplayName = "YOLOv11x";
+                //item.DownloadUrl = "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11x.pt";
+                //YoloComboBox.SelectedItem  = item;
+                YoloComboBox.SelectedIndex = 20;
+            }
 			catch (Exception ex)
 			{
 				MessageBox.Show("模型配置加载失败: " + ex.Message);
