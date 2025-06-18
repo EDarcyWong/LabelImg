@@ -56,30 +56,15 @@ namespace LabelImg.YOLO
             {
                 if (!string.IsNullOrEmpty(e.Data))
                 {
-                    //Console.Error.WriteLine("[PY-ERR] " + e.Data);
                     Debug.WriteLine("[PY#] " + e.Data);
                 }
             };
-            //pythonProcess.OutputDataReceived += (s, e) => {
-            //	if (!string.IsNullOrEmpty(e.Data))
-            //		Debug.WriteLine("[PY] " + e.Data);
-            //};
-            //pythonProcess.ErrorDataReceived += (s, e) => {
-            //	if (!string.IsNullOrEmpty(e.Data))
-            //	{
-            //		// 这里可判断是不是 tqdm 输出
-            //		if (e.Data.Contains('%') || e.Data.Contains('|'))
-            //			Debug.WriteLine("[PY-PROGRESS] " + e.Data);
-            //		else
-            //			Debug.WriteLine("[PY-ERR] " + e.Data);
-            //	}
-            //};
-
 
             pythonProcess.Start();
             pythonProcess.BeginOutputReadLine();
             pythonProcess.BeginErrorReadLine();
 		}
+
 		public void KillProcessByPort(int port)
 		{
 			string cmd = $@"for /f ""tokens=5"" %a in ('netstat -aon ^| findstr :{port}') do taskkill /F /PID %a";

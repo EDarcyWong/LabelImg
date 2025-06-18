@@ -101,28 +101,44 @@ namespace LabelImg
             base.OnClosed(e);
         }
 
-        private void StartServer_Click(object sender, EventArgs e)
+        private void MySwitch_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (MySwitch.IsChecked == true)
             {
-                pythonRunner.Start();
-                MessageBox.Show("Python 服务启动成功");
+                try
+                {
+                    pythonRunner.Start();
+                    MessageBox.Show("Python 服务启动成功");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("启动 Python 服务失败：" + ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("启动 Python 服务失败：" + ex.Message);
+                try
+                {
+                    pythonRunner.KillProcessByPort(5000);
+                    MessageBox.Show("Python 服务关闭成功");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("关闭 Python 服务失败：" + ex.Message);
+                }
             }
-		}
+        }
 
-		//private void YoloComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-		//{
-		//	var client = new YoloClient("http://localhost:5000");
 
-  //          // 切换模型
-  //          //await client.LoadModelAsync("models/yolo_other.pt");
-  //          Debug.WriteLine($"YoloComboBox.SelectedValue={YoloComboBox.SelectedValue}");
-		//}
-		private void LoadModels()
+        //private void YoloComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //	var client = new YoloClient("http://localhost:5000");
+
+        //          // 切换模型
+        //          //await client.LoadModelAsync("models/yolo_other.pt");
+        //          Debug.WriteLine($"YoloComboBox.SelectedValue={YoloComboBox.SelectedValue}");
+        //}
+        private void LoadModels()
 		{
 			try
 			{
@@ -176,7 +192,7 @@ namespace LabelImg
 				}
 				else
 				{
-					MessageBox.Show($"模型已存在: {filePath}");
+					//MessageBox.Show($"模型已存在: {filePath}");
 				}
 
 				// 可在这里通知你的检测逻辑加载 filePath
@@ -186,54 +202,51 @@ namespace LabelImg
 		private async void OnDetectClick(object sender, RoutedEventArgs e)
         {
 
-            Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
-            openFileDialog.Filter = "Image files (*.png;*.jpeg;*.jpg)|*.png;*.jpeg;*.jpg|All files (*.*)|*.*";
+            //Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
+            //openFileDialog.Filter = "Image files (*.png;*.jpeg;*.jpg)|*.png;*.jpeg;*.jpg|All files (*.*)|*.*";
 
-            // Show OpenFileDialog
-            if (openFileDialog.ShowDialog() == true)
+            //// Show OpenFileDialog
+            //if (openFileDialog.ShowDialog() == true)
+            //{
+
+            //}
+
+            if(LabelGrid==null || LabelGrid.ImagePath == null || !File.Exists(LabelGrid.ImagePath))
             {
-                var imagePath = openFileDialog.FileName;
+                MessageBox.Show("请选择一张图片");
+                return;
+            }
+            var imagePath = LabelGrid.ImagePath;
 
-                //var output = yolo.DetectImage(imagePath);
-                //LabelGrid.ImageSource = BitmapToImageSource(output);
+            try
+            {
+                var client = new YoloClient("http://localhost:5000");
 
-                LabelGrid.ImageSource = new BitmapImage(new Uri(imagePath));
+                var results = await client.DetectAndParseAsync(imagePath);
 
-                try
-                {
-                    var client = new YoloClient("http://localhost:5000");
+                Dispatcher.Invoke(DispatcherPriority.Render, new Action(() => {
+                    foreach (var result in results)
+                    {
+                        Debug.WriteLine($"Label: {result.label}, Confidence: {result.confidence:P1}");
+                        Debug.WriteLine($"Center: ({result.center[0]}, {result.center[1]})");
 
-                    var results = await client.DetectAndParseAsync(imagePath);
+                        CutLabelModel cut = new();
+                        cut.Name = $"LBL_{RandomStringGenerator.Generate(6)}";
+                        cut.ClassIndex = result.class_id;
+                        cut.XCenter = result.center_norm[0];
+                        cut.YCenter = result.center_norm[1];
+                        cut.XWeight = result.weight[0];
+                        cut.YWeight = result.weight[1];
 
-					//foreach (var item in results)
-					//{
-					//    Console.WriteLine($"[{item.label}] Confidence: {item.confidence:F2}, Box: {string.Join(",", item.bbox)}");
-					//}
-
-					Dispatcher.Invoke(DispatcherPriority.Render, new Action(() => {
-					    foreach (var result in results)
-                        {
-                            Debug.WriteLine($"Label: {result.label}, Confidence: {result.confidence:P1}");
-                            Debug.WriteLine($"Center: ({result.center[0]}, {result.center[1]})");
-
-                            CutLabelModel cut = new();
-                            cut.Name = $"LBL_{RandomStringGenerator.Generate(6)}";
-                            cut.ClassIndex = result.class_id;
-                            cut.XCenter = result.center_norm[0];
-                            cut.YCenter = result.center_norm[1];
-                            cut.XWeight = result.weight[0];
-                            cut.YWeight = result.weight[1];
-
-                            LabelGrid.viewModel.CutList.Add(cut);
-                            LabelGrid.OnControlSizeChanged();
-                        }
-					}));
-					MessageBox.Show("检测完成，控制台查看结果");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("检测失败: " + ex.Message);
-                }
+                        LabelGrid.viewModel.CutList.Add(cut);
+                        LabelGrid.OnControlSizeChanged();
+                    }
+                }));
+                MessageBox.Show("检测完成，控制台查看结果");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("检测失败: " + ex.Message);
             }
         }
 
@@ -946,7 +959,7 @@ namespace LabelImg
         private void LB_lblinfos_Click(object sender, RoutedEventArgs e)
         {
             midRow3Things(lblInfos, ((LabelButton)sender).Content.ToString());
-            
+
         }
 
         private void LB_terminalBox_Click(object sender, RoutedEventArgs e)
@@ -955,7 +968,13 @@ namespace LabelImg
 
         }
 
+        private void LB_textOut_Click(object sender, RoutedEventArgs e)
+        {
+            midRow3Things(textOut, ((LabelButton)sender).Content.ToString());
+
+        }
         
+
 
         private void Right1BtnDingClick(object sender, RoutedEventArgs e)
         {

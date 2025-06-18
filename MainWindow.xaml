@@ -102,14 +102,63 @@
                     Margin="0,0,6,0"
                     Click="Add_Flag_Click"
                     Content="添加标注" />
-                <Button
-                    Margin="0,0,6,0"
-                    Click="StartServer_Click"
-                    Content="启动服务" />
+                
+                <ToggleButton x:Name="MySwitch"
+              Width="50" Height="20"
+              IsChecked="False"
+              Click="MySwitch_Click">
+                    <ToggleButton.Style>
+                        <Style TargetType="ToggleButton">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ToggleButton">
+                                        <Grid Width="50" Height="20">
+                                            <!-- 背景 -->
+                                            <Border x:Name="SwitchBackground"
+                                    CornerRadius="10"
+                                    Background="LightGray"
+                                    BorderBrush="Gray"
+                                    BorderThickness="1" />
+
+                                            <!-- 状态文字 -->
+                                            <TextBlock x:Name="StateText"
+                                       Text="关"
+                                       Foreground="White"
+                                       FontWeight="Bold"
+                                       FontSize="10"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+
+                                            <!-- 滑块 -->
+                                            <Ellipse x:Name="SwitchThumb"
+                                     Width="16" Height="16"
+                                     Margin="2"
+                                     Fill="White"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Center" />
+                                        </Grid>
+
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsChecked" Value="True">
+                                                <Setter TargetName="SwitchBackground" Property="Background" Value="LimeGreen"/>
+                                                <Setter TargetName="SwitchThumb" Property="HorizontalAlignment" Value="Right"/>
+                                                <Setter TargetName="StateText" Property="Text" Value="开"/>
+                                            </Trigger>
+                                            <Trigger Property="IsChecked" Value="False">
+                                                <Setter TargetName="StateText" Property="Text" Value="关"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ToggleButton.Style>
+                </ToggleButton>
+
                 <Button
                     Margin="0,0,6,0"
                     Click="OnDetectClick"
-                    Content="按钮2" />
+                    Content="检测" />
                 <Button
                     Margin="3"
                     hc:BorderElement.CornerRadius="0"
@@ -251,6 +300,10 @@
                             </DataGrid>
                             <UserControls:PowerShellTerminal
                                 x:Name="terminalTextBox"
+                                Margin="6,26,6,6"
+                                Visibility="Collapsed" />
+                            <TextBlock
+                                x:Name="textOut"
                                 Margin="6,26,6,6"
                                 Visibility="Collapsed" />
                         </Grid>
@@ -468,6 +521,10 @@
                         Margin="2,0"
                         Click="LB_terminalBox_Click"
                         Content="终端" />
+                    <UserControls:LabelButton
+                        Margin="2,0"
+                        Click="LB_textOut_Click"
+                        Content="输出" />
                 </StackPanel>
             </Grid>
         </Grid>
