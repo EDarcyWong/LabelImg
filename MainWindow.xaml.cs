@@ -1,4 +1,5 @@
-﻿using HandyControl.Controls;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using HandyControl.Controls;
 using LabelImg.Models;
 using LabelImg.ViewModels;
 using LabelImg.Views;
@@ -16,6 +17,7 @@ using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -94,6 +96,18 @@ namespace LabelImg
             viewModel = (MainViewModel)this.DataContext;
             
             LoadData(ysnlFilePath);
+
+            WeakReferenceMessenger.Default.Register<MyMessage>(this, (r, m) =>
+            {
+                Debug.WriteLine($"收到消息: {m.Value}");
+
+                this.Dispatcher.Invoke(() =>
+                {
+                    textOut.AppendText(m.Value + "\n");
+                    textOut.ScrollToEnd();
+                });
+            });
+
         }
         protected override void OnClosed(EventArgs e)
         {
@@ -108,7 +122,7 @@ namespace LabelImg
                 try
                 {
                     pythonRunner.Start();
-                    MessageBox.Show("Python 服务启动成功");
+                    //MessageBox.Show("Python 服务启动成功");
                 }
                 catch (Exception ex)
                 {
@@ -120,7 +134,7 @@ namespace LabelImg
                 try
                 {
                     pythonRunner.KillProcessByPort(5000);
-                    MessageBox.Show("Python 服务关闭成功");
+                    //MessageBox.Show("Python 服务关闭成功");
                 }
                 catch (Exception ex)
                 {
@@ -157,7 +171,8 @@ namespace LabelImg
 			catch (Exception ex)
 			{
 				MessageBox.Show("模型配置加载失败: " + ex.Message);
-			}
+                WeakReferenceMessenger.Default.Send(new MyMessage("模型配置加载失败: " + ex.Message));
+            }
 		}
 
 		private async void YoloComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -177,6 +192,7 @@ namespace LabelImg
                         var data = await client.GetByteArrayAsync(model.DownloadUrl);
                         await File.WriteAllBytesAsync(filePath, data);
                         MessageBox.Show($"已下载模型到: {filePath}");
+                        WeakReferenceMessenger.Default.Send(new MyMessage($"已下载模型到: {filePath}"));
 
 
                         var client2 = new YoloClient("http://localhost:5000");
@@ -188,7 +204,8 @@ namespace LabelImg
 					catch (Exception ex)
 					{
 						MessageBox.Show($"下载失败: {ex.Message}");
-					}
+                        WeakReferenceMessenger.Default.Send(new MyMessage($"下载失败: {ex.Message}"));
+                    }
 				}
 				else
 				{
@@ -214,6 +231,7 @@ namespace LabelImg
             if(LabelGrid==null || LabelGrid.ImagePath == null || !File.Exists(LabelGrid.ImagePath))
             {
                 MessageBox.Show("请选择一张图片");
+                WeakReferenceMessenger.Default.Send(new MyMessage($"请选择一张图片"));
                 return;
             }
             var imagePath = LabelGrid.ImagePath;
@@ -230,6 +248,9 @@ namespace LabelImg
                         Debug.WriteLine($"Label: {result.label}, Confidence: {result.confidence:P1}");
                         Debug.WriteLine($"Center: ({result.center[0]}, {result.center[1]})");
 
+                        WeakReferenceMessenger.Default.Send(new MyMessage($"Label: {result.label}, Confidence: {result.confidence:P1}"));
+                        WeakReferenceMessenger.Default.Send(new MyMessage($"Center: ({result.center[0]}, {result.center[1]})"));
+
                         CutLabelModel cut = new();
                         cut.Name = $"LBL_{RandomStringGenerator.Generate(6)}";
                         cut.ClassIndex = result.class_id;
@@ -243,10 +264,12 @@ namespace LabelImg
                     }
                 }));
                 MessageBox.Show("检测完成，控制台查看结果");
+                WeakReferenceMessenger.Default.Send(new MyMessage("检测完成，控制台查看结果"));
             }
             catch (Exception ex)
             {
                 MessageBox.Show("检测失败: " + ex.Message);
+                WeakReferenceMessenger.Default.Send(new MyMessage("检测失败: " + ex.Message));
             }
         }
 
@@ -970,7 +993,7 @@ namespace LabelImg
 
         private void LB_textOut_Click(object sender, RoutedEventArgs e)
         {
-            midRow3Things(textOut, ((LabelButton)sender).Content.ToString());
+            midRow3Things(outCon, ((LabelButton)sender).Content.ToString());
 
         }
         

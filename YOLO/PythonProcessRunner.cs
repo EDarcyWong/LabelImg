@@ -1,10 +1,14 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using LabelImg.Models;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommunityToolkit.Mvvm.Messaging;
+
 
 namespace LabelImg.YOLO
 {
@@ -20,6 +24,7 @@ namespace LabelImg.YOLO
         /// <param name="workingDirectory">工作目录，一般为脚本所在目录</param>
         public void Start()
         {
+            WeakReferenceMessenger.Default.Send(new MyMessage("[PY] 开始启动Python服务……"));
             KillProcessByPort(5000);
 
 			string pythonExePath = "python";
@@ -50,13 +55,17 @@ namespace LabelImg.YOLO
             pythonProcess.OutputDataReceived += (s, e) =>
             {
                 if (!string.IsNullOrEmpty(e.Data))
+                {
                     Debug.WriteLine("[PY] " + e.Data);
+                    WeakReferenceMessenger.Default.Send(new MyMessage("[PY] " + e.Data));
+                }
             };
             pythonProcess.ErrorDataReceived += (s, e) =>
             {
                 if (!string.IsNullOrEmpty(e.Data))
                 {
                     Debug.WriteLine("[PY#] " + e.Data);
+                    WeakReferenceMessenger.Default.Send(new MyMessage("[PY#] " + e.Data));
                 }
             };
 
@@ -66,8 +75,9 @@ namespace LabelImg.YOLO
 		}
 
 		public void KillProcessByPort(int port)
-		{
-			string cmd = $@"for /f ""tokens=5"" %a in ('netstat -aon ^| findstr :{port}') do taskkill /F /PID %a";
+        {
+            WeakReferenceMessenger.Default.Send(new MyMessage("[PY] 关闭端口："+port));
+            string cmd = $@"for /f ""tokens=5"" %a in ('netstat -aon ^| findstr :{port}') do taskkill /F /PID %a";
 
 			var process = new Process
 			{
@@ -86,24 +96,48 @@ namespace LabelImg.YOLO
 			string output = process.StandardOutput.ReadToEnd();
 			string error = process.StandardError.ReadToEnd();
 			process.WaitForExit();
-
+            if (!string.IsNullOrEmpty(output))
+            {
+                WeakReferenceMessenger.Default.Send(new MyMessage("[Kill] " + output));
+            }
+            if (!string.IsNullOrEmpty(error))
+            {
+                WeakReferenceMessenger.Default.Send(new MyMessage("[Kill] ERROR: " + error));
+            }
 			Debug.WriteLine("Output:\n" + output);
 			Debug.WriteLine("Error:\n" + error);
 		}
 
-		/// <summary>
-		/// 关闭python进程
-		/// </summary>
-		public void Stop()
+        /// <summary>
+        /// 关闭python进程
+        /// </summary>
+        public void Stop()
         {
+            WeakReferenceMessenger.Default.Send(new MyMessage("[PY] 关闭Python服务"));
             if (pythonProcess != null && !pythonProcess.HasExited)
             {
-                pythonProcess.Kill();
-                pythonProcess.WaitForExit();
-                pythonProcess.Dispose();
-                pythonProcess = null;
+                try
+                {
+                    pythonProcess.Kill();
+                    pythonProcess.WaitForExit();
+                    WeakReferenceMessenger.Default.Send(new MyMessage("[PY] 已终止进程 (PID: " + pythonProcess.Id + ")"));
+                }
+                catch (Exception ex)
+                {
+                    WeakReferenceMessenger.Default.Send(new MyMessage("[PY] 终止进程失败: " + ex.Message));
+                }
+                finally
+                {
+                    pythonProcess.Dispose();
+                    pythonProcess = null;
+                }
+            }
+            else
+            {
+                WeakReferenceMessenger.Default.Send(new MyMessage("[PY] 无需终止，进程为空或已退出"));
             }
         }
+
 
         public void Dispose()
         {

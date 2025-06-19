@@ -9,6 +9,7 @@ namespace LabelImg.Models
 {
     public partial class CutLabelModel : INotifyPropertyChanged
     {
+        private int index;
         private string name;
         private string? content;
         private double width;
@@ -18,6 +19,12 @@ namespace LabelImg.Models
         private double yCenter;
         private double xWeight;
         private double yWeight;
+
+        public int Index
+        {
+            get => index;
+            set => SetProperty(ref index, value);
+        }
 
         public string Name
         {

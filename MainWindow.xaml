@@ -270,8 +270,8 @@
                                 <DataGrid.Columns>
                                     <DataGridTextColumn
                                         Width="60"
-                                        Binding="{Binding Converter={StaticResource RowIndexConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}, Mode=FindAncestor}}"
-                                        Header="#"
+                                        Binding="{Binding Index}"
+                                        Header="序号"
                                         IsReadOnly="True" />
                                     <DataGridTextColumn
                                         Width="60"
@@ -302,10 +302,25 @@
                                 x:Name="terminalTextBox"
                                 Margin="6,26,6,6"
                                 Visibility="Collapsed" />
-                            <TextBlock
-                                x:Name="textOut"
+                            <ScrollViewer x:Name="outCon" VerticalScrollBarVisibility="Auto"
                                 Margin="6,26,6,6"
-                                Visibility="Collapsed" />
+                                Visibility="Collapsed" >
+                                <TextBox
+    x:Name="textOut"
+    TextWrapping="Wrap"
+    IsReadOnly="True"
+    BorderThickness="0"
+    Background="Transparent"
+    IsReadOnlyCaretVisible="False"
+    VerticalScrollBarVisibility="Auto"
+    FontFamily="Consolas"
+    FontSize="13"
+    AcceptsReturn="True"
+    Padding="2" VerticalAlignment="Top"
+    />
+
+                            </ScrollViewer>
+
                         </Grid>
                         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top">
                             <Grid.ColumnDefinitions>

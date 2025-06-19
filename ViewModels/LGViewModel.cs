@@ -13,15 +13,23 @@ namespace LabelImg.ViewModels
   public partial  class LGViewModel : ObservableObject
     {
 
+        //[ObservableProperty]
+        //private ObservableCollection<CutLabelModel> cutList;
+
+        //public LGViewModel()
+        //{
+
+        //    CutList = new ObservableCollection<CutLabelModel>
+        //    {
+        //    };
+        //}
+
         [ObservableProperty]
-        private ObservableCollection<CutLabelModel> cutList;
+        private IndexedCutLabelCollection cutList;
 
         public LGViewModel()
         {
-
-            CutList = new ObservableCollection<CutLabelModel>
-            {
-            };
+            CutList = new IndexedCutLabelCollection();
         }
     }
 }
